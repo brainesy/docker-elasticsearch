@@ -1,0 +1,13 @@
+2014-12-08 22:56:26,637 CRIT Supervisor running as root (no user in config file)
+2014-12-08 22:56:26,639 INFO supervisord started with pid 29519
+2014-12-08 22:56:27,640 INFO spawnerr: can't find command '/usr/sbin/cron'
+2014-12-08 22:56:27,641 INFO spawnerr: can't find command '/opt/es_config'
+2014-12-08 22:56:27,641 INFO spawnerr: can't find command '/opt/elasticsearch/bin/elasticsearch'
+2014-12-08 22:56:28,643 INFO spawnerr: can't find command '/usr/sbin/cron'
+2014-12-08 22:56:28,643 INFO spawnerr: can't find command '/opt/es_config'
+2014-12-08 22:56:28,643 INFO spawnerr: can't find command '/opt/elasticsearch/bin/elasticsearch'
+2014-12-08 22:56:30,646 INFO spawnerr: can't find command '/usr/sbin/cron'
+2014-12-08 22:56:30,646 INFO spawnerr: can't find command '/opt/es_config'
+2014-12-08 22:56:30,647 INFO spawnerr: can't find command '/opt/elasticsearch/bin/elasticsearch'
+2014-12-08 22:56:32,516 WARN received SIGINT indicating exit request
+2014-12-08 22:56:32,516 INFO waiting for cron, es_config to die
