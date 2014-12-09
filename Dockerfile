@@ -16,24 +16,29 @@ ENV ES_AWS_REGION ap-southeast-2
 # Install elasticsearch
 
 WORKDIR /opt
+
 RUN \
   wget -q https://download.elasticsearch.org/elasticsearch/elasticsearch/$ES_PKG_NAME.tar.gz && \
   tar xvzf $ES_PKG_NAME.tar.gz && \
   rm -f $ES_PKG_NAME.tar.gz && \
   mv $ES_PKG_NAME /opt/elasticsearch
 
-# Install elasticsearch cloud aws plugin
+# Install elasticsearch plugins
 
-RUN cd /opt/elasticsearch && bin/plugin -install elasticsearch/elasticsearch-cloud-aws/$ES_EC2_CLOUD_PLUGIN_VERSION
+RUN \
+  cd /opt/elasticsearch && \
+  bin/plugin -i mobz/elasticsearch-head && \
+  bin/plugin -i lukas-vlcek/bigdesk && \
+  bin/plugin -i elasticsearch/elasticsearch-cloud-aws/$ES_EC2_CLOUD_PLUGIN_VERSION 
+
 
 # expose ports
 
-EXPOSE 9200 9300
+EXPOSE 9200 9300 22
 
 # Copy config files and crontab
 
-ADD es_config /opt/es_config
-RUN chmod +x /opt/es_config
+ADD elasticsearch.yml /opt/elasticsearch/config/elasticsearch.yml
 
 ADD es.crontab /opt/es.crontab
 RUN crontab /opt/es.crontab

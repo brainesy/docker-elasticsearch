@@ -1,0 +1,20 @@
+cluster.name: $ES_CLUSTER_NAME
+plugin.mandatory: "cloud-aws"
+script.disable_dynamic: true
+network.publish_host: _ec2:privateIp_
+
+cloud:
+  aws:
+    region: ap-southeast-2
+  node.auto_attributes: true
+
+discovery:
+  type: ec2
+  zen.ping.multicast.enabled: false
+  zen.ping.timeout: 30s
+  ec2.groups: $ES_CLUSTER_NAME
+repositories:
+  s3:
+    bucket: ingogo-backups
+    base_path: elasticsearch/snapshots
+    region: ap-southeast-2

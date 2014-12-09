@@ -10,7 +10,7 @@ EOF
 # Update logstash eleasticsearch config so it uses ec2 discovery
 if [ "$ES_DISCOVERY" == "ec2" ] ; then
 	cat >> /opt/elasticsearch/config/elasticsearch.yml << EOF
-network.publish_host: _ec2_
+network.publish_host: _ec2:privateIp_
 
 cloud:
   aws:
