@@ -1,4 +1,4 @@
-cluster.name: $ES_CLUSTER_NAME
+#cluster.name: $ES_CLUSTER_NAME
 plugin.mandatory: "cloud-aws"
 script.disable_dynamic: true
 network.publish_host: _ec2:privateIp_
@@ -12,7 +12,7 @@ discovery:
   type: ec2
   zen.ping.multicast.enabled: false
   zen.ping.timeout: 30s
-  ec2.groups: $ES_CLUSTER_NAME
+#  ec2.groups: $ES_CLUSTER_NAME
 repositories:
   s3:
     bucket: ingogo-backups
